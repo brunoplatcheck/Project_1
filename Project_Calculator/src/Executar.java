@@ -25,7 +25,7 @@ class Executar {
         System.out.println("CHOOSE YOUR ACTION:");
         System.out.println("|1=+||2=-||3=*||4=/|\n|5=^2||6=RAIZ||7=!n|\n"+
                 "|8=x^y||9=10^x||10=LN|\n|11=Log||12=YraizX||13=2^X|"+
-                "");//continuar a partir do 11
+                "|14=e^x||15=RAIZ3||16=X^3|\n");
         
         controler=s.nextInt();
         switch(controler){
@@ -69,6 +69,35 @@ class Executar {
                 LN ln=new LN();
                 ln.LN();
                 break;
+            case 11:
+                Logaritmo logarit=new Logaritmo();
+                logarit.Logaritmo();
+                break;
+            case 12:
+                Raiz raiz=new Raiz();
+                raiz.Raiz();
+                break;
+            case 13:
+                EleveTwo ele2=new EleveTwo();
+                ele2.EleveTwo();
+                break;
+            case 14:
+                Exponential exp=new Exponential();
+                exp.Exponential();
+                break;
+            case 15:
+                RootCubic root3=new RootCubic();
+                root3.RootCubic();
+                break;
+            case 16:
+                ElevCubic elev3=new ElevCubic();
+                elev3.ElevCubic();
+                break;
+            default:
+                System.out.println("Value invalid, inform another comand:");
+                Executar ex=new Executar();
+                ex.Menu();
+                break;
             
         }
 
@@ -81,19 +110,5 @@ class Executar {
         }while(comand.equalsIgnoreCase("OK"));
         System.out.println("Closing Program.");
     }
-     public static void limparConsole() {
-        try {
-            if (System.getProperty("os.name").contains("Windows")) {
-                // Para Windows
-                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-            } else {
-                // Para sistemas Unix-like (Linux, macOS)
-                System.out.print("\033[H\033[2J");
-                System.out.flush();
-            }
-        } catch (IOException | InterruptedException ex) {
-            // Lidar com exceções, se necessário
-            ex.printStackTrace();
-        }
-    }
+     
 }
